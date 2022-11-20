@@ -1,0 +1,18 @@
+func miniMaxSum(n []int32) {
+	var sum int64
+	for i := 0; i < len(n); i++ {
+		sum = sum + int64(n[i])
+	}
+
+	var min int64
+	var max int64
+	for i := 0; i < len(n); i++ {
+		if sum-int64(n[i]) <= min || min == 0 {
+			min = sum - int64(n[i])
+		}
+		if sum-int64(n[i]) > max || max == 0 {
+			max = sum - int64(n[i])
+		}
+	}
+	fmt.Printf("%d %d", min, max)
+}
